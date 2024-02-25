@@ -1,0 +1,32 @@
+ <h1 [style.color]="color">This is user components</h1>
+<p>Hello {{Name | titlecase}} works!</p>
+<button [disabled]="isBtndisabled">Click me</button>
+
+<h1>input value {{inputValue}}</h1>
+<!-- <input type="text" [value]="inputValue" (change)="onChange($event)"> -->
+<input type="text" [(ngModel)] = "inputValue">
+
+<div>
+    @for (item of user; track $index) {
+        @if (item.age<26) {
+            <h1>
+                Name-{{item.Name}} age-{{item.age}} profile-{{item.profile}}
+            </h1>
+        }@else {
+            <h1>
+                Name-{{item.Name}} age-age profile-{{item.profile}}
+            </h1>
+        }
+    }
+</div>
+<hr/>
+<div *ngFor="let item of user">
+    <h1 appHighlight>
+        Name-{{item.Name}} age-{{item.age}} profile-{{item.profile}}
+    </h1>
+</div> 
+
+<h1>Name {{name}}</h1>
+<button (click)="sendData()">
+    Send Data
+</button>
